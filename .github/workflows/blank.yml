@@ -36,3 +36,7 @@ jobs:
           echo "Platform: ${{env.platform}}"
           echo "Region: $region"
           echo "Account: $account"
+
+      - name: "Mostrando var por defecto"
+        run: |
+          echo "Evento: ${{toJSON(github.event)}} "

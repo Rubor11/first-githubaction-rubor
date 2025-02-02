@@ -49,3 +49,8 @@ jobs:
         run: |
           echo "USERNAME: ${{env.username}}"
           echo "PASSWD: ${{env.passwd}}"
+
+      - name: "Comprobar usuario"
+        if: ${{env.username == 'Rubor11' && env.passwd == 'Rubor12' }}
+        run: |
+          echo "la cabra: $GITHUB_ACTOR"

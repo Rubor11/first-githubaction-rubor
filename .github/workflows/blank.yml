@@ -21,6 +21,9 @@ jobs:
         region: us-east-1
         account: 123456789012
 
+        username: ${{secrets.USERNAME}}
+        passwd: ${{secrets.PASSWD}}
+
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -30,15 +33,19 @@ jobs:
         run: echo "Hola mundo"
 
       - name: "Mostrando variables de entorno"
-        # if: ${{ env.platform == 'azure' }}
         run: |
           #echo ""
           echo "Platform: ${{env.platform}}"
           echo "Region: $region"
           echo "Account: $account"
 
-      - name: "Mostrando var por defecto"
+      - name: "Mostrando variables por defecto"
         run: |
           echo "Evento: ${{toJSON(github.event)}} "
           echo "GITHUB_ACTOR: $GITHUB_ACTOR"
           echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+
+      - name: "Mostrar variables secret"
+        run: |
+          echo "USERNAME: ${{env.username}}"
+          echo "PASSWD: ${{env.passwd}}"

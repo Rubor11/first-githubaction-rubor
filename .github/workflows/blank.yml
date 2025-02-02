@@ -38,6 +38,7 @@ jobs:
           echo "Platform: ${{env.platform}}"
           echo "Region: $region"
           echo "Account: $account"
+          echo "Project version: ${{ vars.PROJECT_VERSION }}" # mostrar variables de entrono 
 
       - name: "Mostrando variables por defecto"
         run: |
